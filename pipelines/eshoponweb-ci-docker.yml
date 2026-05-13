@@ -1,0 +1,64 @@
+resources:
+  repositories:
+    - repository: self
+      trigger: none
+
+variables:
+  azureServiceConnection: 'azure subs'
+  subscriptionId: ''
+  resourceGroup: '...'
+  location: 'westeurope'
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+
+    - task: AzureResourceManagerTemplateDeployment@3
+      displayName: Deploy ACR using Bicep
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: $(azureServiceConnection)
+        subscriptionId: $(subscriptionId)
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroup)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'infra/acr.bicep'
+        deploymentMode: 'Incremental'
+        deploymentOutputs: 'outputJson'
+
+    - task: PowerShell@2
+      displayName: Parse Bicep Output
+      inputs:
+        targetType: 'inline'
+        script: |
+          $var = ConvertFrom-Json '$(outputJson)'
+          $value = $var.acrLoginServer.value
+          Write-Host "ACR Login Server: $value"
+          Write-Host "##vso[task.setvariable variable=acrLoginServer;]$value"
+
+    - task: AzureCLI@2
+      displayName: Login to ACR
+      inputs:
+        azureSubscription: $(azureServiceConnection)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          az acr login --name $(acrLoginServer)
+
+    - task: Docker@2
+      displayName: Build and Push Docker Image
+      inputs:
+        command: buildAndPush
+        repository: eshoponweb/web
+        dockerfile: 'src/Web/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)'
+        containerRegistry: 'eshoponweb-acr-connection'
+        tags: |
+          $(Build.BuildId)
+          latest
