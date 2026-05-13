@@ -6,6 +6,45 @@ This project demonstrates a complete end-to-end CI/CD pipeline implementation us
 
 The primary objective of this project was to containerize the Microsoft eShopOnWeb application, automate Docker image builds, push images to Azure Container Registry, and deploy the application to Azure App Service using Azure DevOps pipelines.
 
+# Project Structure
+
+```bash
+eshoponweb-azure-devops-cicd/
+│
+├── pipelines/
+│   ├── eshoponweb-ci-docker.yml
+│   └── eshoponweb-cd-webapp-docker.yml
+│
+├── infra/
+│   ├── acr.bicep
+│   ├── webapp-docker.bicep
+│   └── webapp-to-acr-roleassignment.bicep
+│
+├── architecture/
+│   └── architecture-diagram.png
+│
+├── screenshots/
+│   ├── ci-pipeline-setup.png
+│   ├── ci-pipeline-success.png
+│   ├── cd-pipeline-setup.png
+│   ├── cd-pipeline-success.png
+│   ├── docker-registry-service-connection.png
+│   ├── acr-repository.png
+│   ├── app-service-overview.png
+│   ├── azure-resources-overview.png
+│   ├── iam-role-assignment.png
+│   └── running-eshoponweb-app.png
+│
+├── docs/
+│   ├── troubleshooting.md
+│   ├── lessons-learned.md
+│   └── deployment-steps.md
+│
+├── src/
+│
+└── README.md
+```
+
 ---
 
 # Project Architecture
@@ -222,7 +261,7 @@ Successfully validated:
 
 ## Docker Registry Service Connection
 
-<img width="1573" height="871" alt="05-docker-registry-service-connection png" src="https://github.com/user-attachments/assets/aed4b1fa-f791-4205-92fd-945abe72312b" />
+<img width="1573" height="871" alt="05-docker-registry-service-connection" src="https://github.com/user-attachments/assets/28707091-c03a-461a-bd2b-1c27c759f87c" />
 
 
 ---
@@ -243,60 +282,21 @@ Successfully validated:
 
 ## Azure Resources Created
 
+<img width="1565" height="914" alt="08-azure-resources-overview" src="https://github.com/user-attachments/assets/6871c1ac-8c38-4fc0-bcb1-e7bf62b71e03" />
 
 
 ---
 
 ## IAM Role Assignment
 
-![IAM Role Assignment](screenshots/iam-role-assignment.png)
+<img width="1455" height="916" alt="09-iam-role-assignment" src="https://github.com/user-attachments/assets/5c841a41-8576-4aa3-8ec6-322505003ea5" />
+
 
 ---
 
 ## Running eShopOnWeb Application
 
-![Running Application](screenshots/running-eshoponweb-app.png)
-
----
-
-# Project Structure
-
-```bash
-eshoponweb-azure-devops-cicd/
-│
-├── pipelines/
-│   ├── eshoponweb-ci-docker.yml
-│   └── eshoponweb-cd-webapp-docker.yml
-│
-├── infra/
-│   ├── acr.bicep
-│   ├── webapp-docker.bicep
-│   └── webapp-to-acr-roleassignment.bicep
-│
-├── architecture/
-│   └── architecture-diagram.png
-│
-├── screenshots/
-│   ├── ci-pipeline-setup.png
-│   ├── ci-pipeline-success.png
-│   ├── cd-pipeline-setup.png
-│   ├── cd-pipeline-success.png
-│   ├── docker-registry-service-connection.png
-│   ├── acr-repository.png
-│   ├── app-service-overview.png
-│   ├── azure-resources-overview.png
-│   ├── iam-role-assignment.png
-│   └── running-eshoponweb-app.png
-│
-├── docs/
-│   ├── troubleshooting.md
-│   ├── lessons-learned.md
-│   └── deployment-steps.md
-│
-├── src/
-│
-└── README.md
-```
+<img width="1312" height="953" alt="10-running-eshoponweb-app" src="https://github.com/user-attachments/assets/0c359aae-8252-4325-8ba5-c9ce527a965b" />
 
 ---
 
@@ -308,7 +308,7 @@ https://github.com/MicrosoftLearning/eShopOnWeb
 
 ---
 
-# Author
+## Author
 
 Samuel Tettey-Fio
 
@@ -316,14 +316,11 @@ DevOps | Cloud Engineering | AWS & Azure
 
 ---
 
-# Final Result
+## 📬 Contact  
+If you’re a recruiter or hiring manager looking for a Cloud/DevOps Engineer, feel free to connect via email at samuel.tfio@gmail.com
 
-Successfully implemented a production-style Azure DevOps CI/CD pipeline that:
+## 🔗 Links
 
-- Builds Docker images
-- Pushes images to Azure Container Registry
-- Deploys containers to Azure App Service
-- Uses Managed Identity for secure authentication
-- Automates infrastructure deployment using Bicep
-- Demonstrates real-world DevOps engineering practices
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/samuel-tettey-fio/)
+
 
