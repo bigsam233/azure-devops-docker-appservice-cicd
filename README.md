@@ -1,4 +1,4 @@
-# eShopOnWeb – Azure DevOps CI/CD Pipeline with Docker, ACR & Azure App Service
+# Azure DevOps CI/CD Pipeline with Docker, ACR & Azure App Service
 
 # Project Overview
 
@@ -6,24 +6,12 @@ This project demonstrates a complete end-to-end CI/CD pipeline implementation us
 
 The primary objective of this project was to containerize the Microsoft eShopOnWeb application, automate Docker image builds, push images to Azure Container Registry, and deploy the application to Azure App Service using Azure DevOps pipelines.
 
-This project demonstrates practical DevOps engineering concepts including:
-
-- Continuous Integration (CI)
-- Continuous Deployment (CD)
-- Docker containerization
-- Infrastructure as Code (IaC)
-- Azure App Service deployments
-- Azure Container Registry integration
-- IAM role assignments
-- Managed Identity authentication
-- YAML pipeline automation
-- Pipeline troubleshooting and debugging
-
 ---
 
 # Project Architecture
 
-![Architecture Diagram](architecture/architecture-diagram.png)
+<img width="1536" height="1024" alt="architecture diagram image" src="https://github.com/user-attachments/assets/819fc5d5-dd39-444f-9de7-48c12c6d9322" />
+
 
 ## Architecture Flow
 
@@ -206,49 +194,56 @@ Successfully validated:
 
 ## CI Pipeline Setup
 
-![CI Pipeline Setup](screenshots/ci-pipeline-setup.png)
+<img width="1565" height="898" alt="01-ci-pipeline-setup" src="https://github.com/user-attachments/assets/b331b4f5-bc26-45af-a66f-d24f195838af" />
+
 
 ---
 
 ## CI Pipeline Successfully Completed
 
-![CI Pipeline](screenshots/ci-pipeline-success.png)
+<img width="1565" height="898" alt="02-ci successfully deployed" src="https://github.com/user-attachments/assets/0e25793d-1f0f-4c79-9230-6d5722c2bbaa" />
+
 
 ---
 
 ## CD Pipeline Setup
 
-![CD Pipeline Setup](screenshots/cd-pipeline-setup.png)
+<img width="1565" height="914" alt="03-setting up CD with Azure Pipelines" src="https://github.com/user-attachments/assets/432ae8da-6c9a-41c6-a66a-e985688e4668" />
+
 
 ---
 
 ## CD Pipeline Successfully Completed
 
-![CD Pipeline](screenshots/cd-pipeline-success.png)
+<img width="1565" height="914" alt="04-cd successfully deployed" src="https://github.com/user-attachments/assets/1b0280a9-c314-465f-9467-97135fef85f9" />
+
 
 ---
 
 ## Docker Registry Service Connection
 
-![Docker Registry Service Connection](screenshots/docker-registry-service-connection.png)
+<img width="1573" height="871" alt="05-docker-registry-service-connection png" src="https://github.com/user-attachments/assets/aed4b1fa-f791-4205-92fd-945abe72312b" />
+
 
 ---
 
 ## Azure Container Registry Repository
 
-![ACR Repository](screenshots/acr-repository.png)
+<img width="1565" height="898" alt="06-acr-repository" src="https://github.com/user-attachments/assets/56025f98-d0a1-466a-a71e-e00bee314c37" />
+
 
 ---
 
 ## Azure App Service Overview
 
-![App Service](screenshots/app-service-overview.png)
+<img width="1570" height="926" alt="07-app-service-overview" src="https://github.com/user-attachments/assets/c2009a5d-8f2a-4a41-b4b2-4922adb453eb" />
+
 
 ---
 
 ## Azure Resources Created
 
-![Azure Resources](screenshots/azure-resources-overview.png)
+
 
 ---
 
